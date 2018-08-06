@@ -1,0 +1,7 @@
+[package]
+name = "git-leaf"
+version = "0.1.0"
+authors = ["Jeremie Veillet <jeremie.veillet@gmail.com>"]
+
+[dependencies]
+clap = "2.32.0"

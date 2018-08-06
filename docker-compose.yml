@@ -1,0 +1,9 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+    user: rusty
+    volumes:
+      - ".:/home/rusty/src/git-leaf"
+    command: cargo run
