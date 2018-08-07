@@ -5,3 +5,7 @@ authors = ["Jeremie Veillet <jeremie.veillet@gmail.com>"]
 
 [dependencies]
 clap = "2.32.0"
+
+[[bin]]
+name = "git-leaf"
+path = "src/main.rs"
