@@ -7,7 +7,7 @@ git-leaf is a CLI tool to create branch named under a convention written in Rust
 `$ git-leaf -h`
 
 ```bash
-git-leaf 0.1.0
+git-leaf 0.2.0
 Jérémie Veillet <jeremie.veillet@gmail.com>
 CLI to automatically name git branches based on a convention.
 
