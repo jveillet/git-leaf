@@ -55,7 +55,7 @@ $ docker-compose run --rm app cargo build --release
 `$ git-leaf -h`
 
 ```bash
-git-leaf 0.2.0
+git-leaf 0.2.1
 Jérémie Veillet <jeremie.veillet@gmail.com>
 CLI to automatically name git branches based on a convention.
 

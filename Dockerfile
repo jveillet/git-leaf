@@ -1,4 +1,4 @@
-FROM rust:1.28-stretch
+FROM rust:1.28-slim-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /home/rusty
@@ -6,7 +6,7 @@ ENV USER rusty
 
 RUN apt-get update -y \
       && apt-get --no-install-recommends install -y pkg-config apt-utils \
-      build-essential sudo libffi-dev libssl-dev \
+      build-essential sudo libffi-dev libssl-dev git-core \
       && rm -rf /var/lib/apt/lists/*
 
 # Create a local user that will be able to run commands

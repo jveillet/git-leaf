@@ -7,7 +7,7 @@ use git::git as cli;
 
 fn main() {
     let matches = App::new("git-leaf")
-        .version("0.2.0")
+        .version("0.2.1")
         .author("Jérémie Veillet <jeremie.veillet@gmail.com>")
         .about("CLI to automatically name git branches based on a convention.")
         .arg(
