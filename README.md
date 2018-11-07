@@ -4,7 +4,7 @@ git-leaf is a command line utility for creating git branches using a convention,
 
 This project is a Rust playground, it might not be helpful to you, it's an OSS project so you might tweak it as you want.
 
-# Description
+## Description
 
 git-leaf is an executable that takes an issue name, could be a JIRA ticket number, a Github issue number,..
 And a title, which is a simple string sentence, representing your issue title.
@@ -12,16 +12,21 @@ And a title, which is a simple string sentence, representing your issue title.
 The output will be a git branch with a name formated with the concatenation of the issue name + title.
 The whitespace will be replaced by underscores, and only the first letter of the sentence will be capitalized.
 
-### Prerequisites
+## Prerequisites
 
 You will need a version of the Rust Programming language (>= 1.28.0), it should come with Cargo, the Rust packet manager.
 See the [Rust documentation](https://doc.rust-lang.org/cargo/getting-started/installation.html) for more details.
 
-This project has only been tested on Linux (Debian based distro). Feel free to test it on another OS and share the outcomes.
+This project is known to work on On linux Debian 9, and MacOS High Sierra and Mojave.
 
-You will also need a working version of git installed on your system.
+Feel free to test it on another OS and open issues if needed.
 
-### Installing
+### Dependencies
+
+You will need a working version of git installed on your system.
+Note that it is already provided in the Dockerfile.
+
+## Installing
 
 ```bash
 $ git clone git@gitlab.com:jveillet/git-leaf.git
@@ -29,11 +34,11 @@ $ cd git-leaf
 $ cargo install --bin git-leaf
 ```
 
-### Compile from source
+## Compile from source
 
 **Note**: You can also build this project using Docker (see the Compile with Docker section).
 
-#### Compile locally
+### Compile locally
 
 ```bash
 $ git clone git@gitlab.com:jveillet/git-leaf.git
@@ -41,7 +46,7 @@ $ cd git-leaf
 $ cargo build --release
 ```
 
-#### Compile with Docker
+### Compile with Docker
 
 ```bash
 $ git clone git@gitlab.com:jveillet/git-leaf.git
@@ -71,7 +76,7 @@ OPTIONS:
     -t, --title <TITLE>    Issue title
 ```
 
-### Example
+## Example
 
 ```bash
 $ cd my-awesome-project

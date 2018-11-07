@@ -1,7 +1,7 @@
-pub mod git {
+pub mod cli {
 
-    use std::process::Command;
     use regex::Regex;
+    use std::process::Command;
 
     /// Test if the git comand line tool is present on the system
     ///
@@ -117,27 +117,27 @@ mod tests {
 
     #[test]
     fn has_git_present() {
-        assert_eq!(git::is_present(), true);
+        assert_eq!(cli::is_present(), true);
     }
 
     #[test]
     fn should_format_title() {
         let sentence = String::from("My Awesome Issue Title");
-        let title = git::format_title(&sentence);
+        let title = cli::format_title(&sentence);
         assert_eq!(title, "My_awesome_issue_title");
     }
 
     #[test]
     fn should_escape_special_characters() {
         let sentence = String::from("My awesome text @ ! #");
-        let title = git::remove_special_characters(&sentence);
+        let title = cli::remove_special_characters(&sentence);
         assert_eq!(title, "My awesome text");
     }
 
     #[test]
     fn should_replace_whitespace() {
         let sentence = String::from("My awesome text");
-        let result = git::replace_white_space(&sentence, "-");
+        let result = cli::replace_white_space(&sentence, "-");
         assert_eq!(result, "My-awesome-text");
     }
 }
