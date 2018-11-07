@@ -41,7 +41,7 @@ extern crate regex;
 use clap::{App, Arg};
 
 mod git;
-use git::git as cli;
+use git::cli as git_cli;
 
 fn main() {
     let matches = App::new("git-leaf")
@@ -56,8 +56,7 @@ fn main() {
                 .help("Issue name, ex: JIRA-1234")
                 .takes_value(true)
                 .required(true),
-        )
-        .arg(
+        ).arg(
             Arg::with_name("title")
                 .short("t")
                 .long("title")
@@ -65,16 +64,15 @@ fn main() {
                 .help("Issue title")
                 .takes_value(true)
                 .required(true),
-        )
-        .get_matches();
+        ).get_matches();
 
-    if cli::is_present() {
+    if git_cli::is_present() {
         // Get the branch name and title from the command line arguments
         let name = matches.value_of("issue").unwrap();
-        let title = cli::format_title(&matches.value_of("title").unwrap());
+        let title = git_cli::format_title(&matches.value_of("title").unwrap());
         // Format the branch name (issue number + issue title)
         let branch_name = format!("{}-{}", name, title);
         // Call the git command line tool to create the branch with this name
-        cli::create_branch(&branch_name);
+        git_cli::create_branch(&branch_name);
     }
 }
