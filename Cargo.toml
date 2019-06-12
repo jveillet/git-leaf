@@ -1,11 +1,11 @@
 [package]
 name = "git-leaf"
-version = "0.2.3"
+version = "0.2.4"
 authors = ["Jeremie Veillet <jeremie.veillet@gmail.com>"]
 
 [dependencies]
-clap = "2.32.0"
-regex = "1.1.0"
+clap = "2.33.0"
+regex = "1.1.7"
 
 [[bin]]
 name = "git-leaf"

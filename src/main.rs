@@ -19,7 +19,7 @@
 //!
 //! # Usage
 //! ```
-//! git-leaf 0.2.3
+//! git-leaf 0.2.4
 //! Jérémie Veillet <jeremie.veillet@gmail.com>
 //! CLI to automatically name git branches based on a convention.
 //!
@@ -44,7 +44,7 @@ mod git;
 
 fn main() {
     let matches = App::new("git-leaf")
-        .version("0.2.3")
+        .version("0.2.4")
         .author("Jérémie Veillet <jeremie.veillet@gmail.com>")
         .about("CLI to automatically name git branches based on a convention.")
         .arg(
