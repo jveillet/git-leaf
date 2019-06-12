@@ -4,7 +4,7 @@ git-leaf is a command line utility for creating git branches using a convention,
 
 This project is a Rust playground, it might not be helpful to you, it's an OSS project so you might tweak it as you want.
 
-## Description
+## Description
 
 git-leaf is an executable that takes an issue name, could be a JIRA ticket number, a Github issue number,..
 And a title, which is a simple string sentence, representing your issue title.
@@ -31,7 +31,20 @@ Note that it is already provided in the Dockerfile.
 ```bash
 $ git clone git@gitlab.com:jveillet/git-leaf.git
 $ cd git-leaf
-$ cargo install --bin git-leaf
+$ cargo install --path .
+```
+
+This will install the binary in the `~/.cargo/bin`.
+
+You can add this path to your OS path `$PATH` in your `.bashrc` or `.zshrc`:
+```
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin"
+
+```
+By doing this, you will get `git` integration for free, neat! :)
+
+```
+$ git leaf -h
 ```
 
 ## Compile from source
@@ -60,7 +73,7 @@ $ docker-compose run --rm app cargo build --release
 `$ git-leaf -h`
 
 ```bash
-git-leaf 0.2.2
+git-leaf 0.2.4
 Jérémie Veillet <jeremie.veillet@gmail.com>
 CLI to automatically name git branches based on a convention.
 
@@ -106,3 +119,4 @@ git-leaf is a free software: you can redistribute it and/or modify it under the 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
+
