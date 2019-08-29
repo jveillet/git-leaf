@@ -1,4 +1,4 @@
-FROM rust:1.35-stretch
+FROM rust:1.37-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /home/rusty
@@ -33,8 +33,8 @@ RUN cargo build --release
 RUN rm src/*.rs
 
 # Install Rust fmt and Clippy
-RUN rustup component add rustfmt-preview
-RUN rustup component add clippy-preview
+RUN rustup component add rustfmt
+RUN rustup component add clippy
 
 # Copies only your actual source code to
 # avoid invalidating the cache at all
