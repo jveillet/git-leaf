@@ -1,6 +1,7 @@
 # git-leaf
 
 git-leaf is a command line utility for creating git branches using a convention, written in Rust.
+It can be used as a Git plugin for convenience.
 
 This project is a Rust playground, it might not be helpful to you, it's an OSS project so you might tweak it as you want.
 
@@ -17,7 +18,7 @@ The whitespace will be replaced by underscores, and only the first letter of the
 You will need a version of the Rust Programming language (>= 1.28.0), it should come with Cargo, the Rust packet manager.
 See the [Rust documentation](https://doc.rust-lang.org/cargo/getting-started/installation.html) for more details.
 
-This project is known to work on On linux Debian 9, and MacOS High Sierra and Mojave.
+This project is known to work on On linux Debian 9, MacOS High Sierra and Mojave.
 
 Feel free to test it on another OS and open issues if needed.
 
@@ -41,7 +42,7 @@ You can add this path to your OS path `$PATH` in your `.bashrc` or `.zshrc`:
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin"
 
 ```
-By doing this, you will get `git` integration for free, neat! :)
+By doing this, you will also get `git` integration for free, neat! :)
 
 ```
 $ git leaf -h
@@ -70,12 +71,12 @@ $ docker-compose run --rm app cargo build --release
 
 ## Usage
 
-`$ git-leaf -h`
+`$ git-leaf -h` or as a git plugin `$ git leaf -h`
 
 ```bash
-git-leaf 0.2.4
+git-leaf 1.0.0
 Jérémie Veillet <jeremie.veillet@gmail.com>
-CLI to automatically name git branches based on a convention.
+Git plugin to automatically name branches based on a convention.
 
 USAGE:
     git-leaf --issue <NAME> --title <TITLE>
@@ -111,6 +112,38 @@ With Docker:
 ```bash
 $ docker-compose run --rm app cargo test
 ```
+
+## Contributing
+
+You want to contribute to the Project? Yeah!! :v: 🎉  Contributors are always welcome! :thumbsup:
+
+**Note**: One of the best ways to help right now is to use the utility and report issues!
+
+### Bugs
+
+If you find bugs, first go to the [issues page](https://gitlab.com/jveillet/git-leaf/issues) and search if a related issue isn't listed there.
+
+Create a new issue and insert any informations that can help to reproduce the observed behavior:
+* Command context
+* Stack trace
+* Expected bahevior
+* Current behavior
+* OS / environment
+
+Consider adding the ~bug label on your ticket.
+
+### Feature requests
+
+Create a new issue on the [issues page](https://gitlab.com/jveillet/git-leaf/issues) and add a clear description of what the new feature should look like.
+
+Consider adding the ~"feature request" label on your ticket.
+
+### Merge Requests
+
+1. Fork git-leaf
+2. Clone your fork `git clone https://gitlab.com/$YOUR_USERNAME/git-leaf && cd git-leaf`
+3. Create new branch `git checkout -b new-branch`
+4. Make your changes, and commit `git commit -am "your message"`
 
 ## Licence.
 

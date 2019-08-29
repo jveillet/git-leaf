@@ -19,9 +19,9 @@
 //!
 //! # Usage
 //! ```
-//! git-leaf 0.2.4
+//! git-leaf 1.0.0
 //! Jérémie Veillet <jeremie.veillet@gmail.com>
-//! CLI to automatically name git branches based on a convention.
+//! Git plugin to automatically name branches based on a convention.
 //!
 //! USAGE:
 //!    git-leaf --issue <NAME> --title <TITLE>
@@ -44,9 +44,9 @@ mod git;
 
 fn main() {
     let matches = App::new("git-leaf")
-        .version("0.2.4")
+        .version("1.0.0")
         .author("Jérémie Veillet <jeremie.veillet@gmail.com>")
-        .about("CLI to automatically name git branches based on a convention.")
+        .about("Git plugin to automatically name branches based on a convention.")
         .arg(
             Arg::with_name("issue")
                 .short("i")
