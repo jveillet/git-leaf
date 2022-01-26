@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-    user: rusty
+    user: rust
     volumes:
-      - ".:/home/rusty/src/git-leaf"
+      - ".:/app/src/git-leaf"
     command: cargo run

@@ -15,6 +15,7 @@ pub fn is_present() -> bool {
 
     output.status.success()
 }
+
 /// Create a named git branch
 ///
 /// # Arguments
@@ -33,6 +34,7 @@ pub fn create_branch(branch_name: &str) {
         .output()
         .expect("the git checkout command failed");
 }
+
 /// Format the issue title
 ///
 /// # Arguments
@@ -54,7 +56,7 @@ pub fn create_branch(branch_name: &str) {
 ///
 pub fn format_title(title: &str) -> String {
     // Replace all whitespaces with underscores
-    let underscores = replace_white_space(&title, "_");
+    let underscores = replace_white_space(title, "_");
     // Remove special characters
     let underscores = remove_special_characters(&underscores);
     // Get separately the first letter of the title and the rest of the sentence
@@ -104,7 +106,7 @@ pub fn replace_white_space(text: &str, sep: &str) -> String {
 ///
 pub fn remove_special_characters(text: &str) -> String {
     let regex = Regex::new(r"[^\w\d\s]").unwrap();
-    let result = regex.replace_all(&text, "").to_string();
+    let result = regex.replace_all(text, "").to_string();
     result.trim().to_string()
 }
 

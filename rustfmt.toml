@@ -8,4 +8,3 @@ merge_derives = true
 use_try_shorthand = false
 force_explicit_abi = true
 use_field_init_shorthand = false
-
