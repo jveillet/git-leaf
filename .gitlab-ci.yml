@@ -1,4 +1,4 @@
-image: "rust:1.37-stretch"
+image: "rust:1.58-stretch"
 
 variables:
   CARGO_HOME: $CI_PROJECT_DIR/cargo

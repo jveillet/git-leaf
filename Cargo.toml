@@ -1,18 +1,18 @@
 [package]
 authors = ["Jeremie Veillet <jeremie.veillet@gmail.com>"]
 categories = ["command-line-utilities"]
-description = "Git plugin to automatically name branches based on a convention"
-homepage = "https://gitlab.com/jveillet/git-leaf"
+description = "Git plugin to automatically name branches based on a convention."
+homepage = "https://github.com/jveillet/git-leaf"
 keywords = ["cli", "git", "plugin"]
 license = "GNU GPLv3"
 name = "git-leaf"
 readme = "README.md"
-repository = "https://gitlab.com/jveillet/git-leaf"
-version = "1.0.0"
+repository = "https://github.com/jveillet/git-leaf"
+version = "1.1.0"
 
 [dependencies]
-clap = "2.33.0"
-regex = "1.2.1"
+clap = { version = "3.0.12", features = ["derive"] }
+regex = "1.5"
 
 [[bin]]
 name = "git-leaf"

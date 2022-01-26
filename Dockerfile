@@ -1,10 +1,9 @@
-FROM rust:1.37-stretch
+FROM rust:1.58-slim-buster
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV HOME /home/rusty
-ENV SRC_DIR /home/rusty/src
-ENV APP_DIR /home/rusty/src/git-leaf
-ENV USER rusty
+ENV SRC_DIR /app/src
+ENV APP_DIR /app/src/git-leaf
+ENV USER rust
 
 RUN apt-get update -y \
       && apt-get --no-install-recommends install -y pkg-config apt-utils \
@@ -41,12 +40,13 @@ RUN rustup component add clippy
 COPY src $APP_DIR/src
 
 # Give the home directory the rights to the user
-RUN chown -R rusty:rusty $HOME
+RUN chown -R $USER:$USER $APP_DIR
 
 # For some reason, the cargo cache and indexes do not seems to have the user rights
-RUN chown -R rusty:rusty /usr/local/cargo
+RUN chown -R $USER:$USER /usr/local/cargo
 
-USER rusty
+# USER rusty
+USER $USER
 
 # Builds again, this time it'll just be
 # your actual source files being built

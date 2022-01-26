@@ -1,6 +1,6 @@
 //! git-leaf is a command line utility to create git branch with a defined format
 //!
-//! Project Repository: (https://gitlab.com/jveillet/git-leaf)[gitlab.com/jveillet/git-leaf]
+//! Project Repository: (https://github.com/jveillet/git-leaf)[github.com/jveillet/git-leaf]
 //!
 //! # Licence
 //!
@@ -19,58 +19,43 @@
 //!
 //! # Usage
 //! ```
-//! git-leaf 1.0.0
+//! git-leaf 1.1.0
 //! Jérémie Veillet <jeremie.veillet@gmail.com>
 //! Git plugin to automatically name branches based on a convention.
 //!
 //! USAGE:
 //!    git-leaf --issue <NAME> --title <TITLE>
 //!
-//! FLAGS:
-//!    -h, --help       Prints help information
-//!    -V, --version    Prints version information
-
 //! OPTIONS:
-//!    -i, --issue <NAME>     Issue name, ex: JIRA-1234
+//!   -h, --help             Print help information
+//!   -i, --issue <NAME>     Issue name, ex: JIRA-1234
 //!   -t, --title <TITLE>    Issue title
+//!   -V, --version          Print version information
 //! ```
 //!
 extern crate clap;
 extern crate regex;
 
-use clap::{App, Arg};
+use clap::Parser;
 
 mod git;
 
+#[derive(Parser)]
+#[clap(author, version, about, long_about = None)]
+struct Cli {
+    #[clap(short, long, required = true, help = "Issue name, ex: JIRA-1234")]
+    issue: Option<String>,
+    #[clap(short, long, required = true, help = "Issue title / description")]
+    title: Option<String>,
+}
+
 fn main() {
-    let matches = App::new("git-leaf")
-        .version("1.0.0")
-        .author("Jérémie Veillet <jeremie.veillet@gmail.com>")
-        .about("Git plugin to automatically name branches based on a convention.")
-        .arg(
-            Arg::with_name("issue")
-                .short("i")
-                .long("issue")
-                .value_name("NAME")
-                .help("Issue name, ex: JIRA-1234")
-                .takes_value(true)
-                .required(true),
-        )
-        .arg(
-            Arg::with_name("title")
-                .short("t")
-                .long("title")
-                .value_name("TITLE")
-                .help("Issue title")
-                .takes_value(true)
-                .required(true),
-        )
-        .get_matches();
+    let cli = Cli::parse();
 
     if git::is_present() {
         // Get the branch name and title from the command line arguments
-        let name = matches.value_of("issue").unwrap();
-        let title = git::format_title(&matches.value_of("title").unwrap());
+        let name = cli.issue.unwrap();
+        let title = git::format_title(&cli.title.unwrap());
         // Format the branch name (issue number + issue title)
         let branch_name = format!("{}-{}", name, title);
         // Call the git command line tool to create the branch with this name
